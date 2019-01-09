@@ -1,0 +1,241 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://Scripts/PlatformVassili.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Sprites/LIKOVI/vassili.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 70, 20 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "dissappearing"
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.6 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.6, 1.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("KinematicZaPlayera:collision/layers")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 512 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("KinematicZaPlayera:collision/mask")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 512 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("KinematicZaPlayera/ColZaPlayera:trigger")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:collision/layers")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 1025, 1024 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:collision/mask")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 1025, 1024 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "invisible"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:collision/layers")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:collision/mask")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 70, 20 )
+
+[node name="PlatVassili" type="KinematicBody2D" groups=[
+"Platforms",
+"Vassili",
+]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1025
+collision/mask = 1025
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+is_visible = 1
+time = 0
+
+[node name="AnimationPlayerVassili" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/dissappearing = SubResource( 2 )
+anims/invisible = SubResource( 3 )
+anims/none = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 2.83028 )
+texture = ExtResource( 2 )
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="LabelTime" type="Label" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -30.0
+margin/top = 0.0
+margin/right = 33.0
+margin/bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X: 0 ,  Y: 0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="LabelVisible" type="Label" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -30.0
+margin/top = -20.0
+margin/right = 33.0
+margin/bottom = -6.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X: 0 ,  Y: 0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="KinematicZaPlayera" type="KinematicBody2D" parent="." groups=[
+"Platforms",
+]]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 2
+collision/margin = 0.08
+
+[node name="ColZaPlayera" type="CollisionShape2D" parent="KinematicZaPlayera"]
+
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+

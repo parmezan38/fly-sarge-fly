@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Fonts/menuTypewriter32_v01.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Scripts/LevelChanging/LevelButton.gd" type="Script" id=2]
+
+[node name="Level_XXX" type="MenuButton"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 241.0
+margin/bottom = 41.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "XXX"
+flat = true
+items = [  ]
+script/script = ExtResource( 2 )
+levelNum = ""
+
+

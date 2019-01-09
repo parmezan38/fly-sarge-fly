@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scripts/Video4Room.gd" type="Script" id=1]
+[ext_resource path="res://Videos/scena_01e.ogv" type="VideoStream" id=2]
+
+[node name="Video" type="Node2D"]
+
+transform/pos = Vector2( 960, 540 )
+script/script = ExtResource( 1 )
+videoName = "000"
+videoOpacity = 1.0
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -400.0
+margin/top = -272.0
+margin/right = 400.0
+margin/bottom = 178.0
+stream/audio_track = 0
+stream/stream = ExtResource( 2 )
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+expand = true
+
+

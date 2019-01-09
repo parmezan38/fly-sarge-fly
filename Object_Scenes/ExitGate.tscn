@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Textures/Sprites/exit_gate_v001.png" type="Texture" id=1]
+
+[node name="ExitGate" type="Node2D"]
+
+editor/display_folded = true
+transform/pos = Vector2( 964.697, 126.617 )
+
+[node name="ExitGateSprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 34.4979 )
+texture = ExtResource( 1 )
+hframes = 2
+
+

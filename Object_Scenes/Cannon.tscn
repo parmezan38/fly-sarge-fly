@@ -1,0 +1,173 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Scripts/Cannon.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Sprites/LIKOVI/cannon.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Sprites/LIKOVI/cannon_wing.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 60, 40 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "idle"
+length = 3.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("CannonZaAnim:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1, 1.15, 2 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 2 ), Vector2( 1.066, 2.14 ), Vector2( -1.15, -0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CannonZaAnim:transform/rot")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1, 1.15, 2 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -2.0, -2.1, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CannonZaAnim/Position2D:transform/rot")
+tracks/2/interp = 2
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.2, 0.55, 0.8, 0.9, 1.25, 1.4, 3 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -0.4, 0.0, -5.0, -6.0, 12.0, 13.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CannonZaAnim/Sprite:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 1.35 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.8 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "none"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "idle"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CannonZaAnim/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "shot"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CannonZaAnim/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 0 ]
+}
+
+[node name="Cannon" type="KinematicBody2D" groups=[
+"BulletLauncher",
+]]
+
+transform/pos = Vector2( -30, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 4
+collision/mask = 4
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+ball_speed = 100
+direction = 1
+timeToShoot = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+anims/none = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="AnimationPlayer4Face" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 4 )
+anims/shot = SubResource( 5 )
+next/shot = "idle"
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CannonZaAnim" type="Node2D" parent="."]
+
+transform/pos = Vector2( 0.524104, 1.49891 )
+transform/rot = -1.34249
+
+[node name="LocToShoot" type="Position2D" parent="CannonZaAnim"]
+
+[node name="Sprite" type="Sprite" parent="CannonZaAnim"]
+
+visibility/opacity = 0.805632
+texture = ExtResource( 2 )
+vframes = 3
+frame = 1
+
+[node name="Position2D" type="Position2D" parent="CannonZaAnim"]
+
+editor/display_folded = true
+transform/pos = Vector2( -30.0495, -20.3907 )
+transform/rot = 13.1383
+
+[node name="Wing" type="Sprite" parent="CannonZaAnim/Position2D"]
+
+transform/pos = Vector2( -14.0781, -10 )
+texture = ExtResource( 3 )
+
+

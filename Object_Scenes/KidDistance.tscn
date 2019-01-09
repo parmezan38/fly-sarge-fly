@@ -1,0 +1,18 @@
+[gd_scene format=1]
+
+[node name="KidDistance" type="Polygon2D"]
+
+visibility/opacity = 0.23
+polygon = Vector2Array( 0, 0, 0, 40, 120, 40, 120, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+

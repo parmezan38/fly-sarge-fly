@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Object_Scenes/Brick/BrickL.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Object_Scenes/Brick/BrickR.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 20 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 20 )
+
+[node name="Brick2X" type="Node2D"]
+
+editor/display_folded = true
+transform/pos = Vector2( 550, 720 )
+
+[node name="BrickL" type="KinematicBody2D" parent="." groups=[
+"Walls",
+] instance=ExtResource( 1 )]
+
+transform/pos = Vector2( -20, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 11
+collision/mask = 11
+collision/margin = 0.08
+
+[node name="BrickR" type="KinematicBody2D" parent="." groups=[
+"Walls",
+] instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 20, 0 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 11
+collision/mask = 11
+collision/margin = 0.08
+
+

@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Scripts/CannonBall.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Sprites/LIKOVI/cball.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Sprites/LIKOVI/cball_highlight.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 30.0
+
+[node name="CannonBall" type="KinematicBody2D" groups=[
+"CannonBall",
+]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 9
+collision/mask = 9
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+ball_speed = 150
+is_hit_wall = false
+direction = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="Highlight" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 2.36669 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"CannonBall",
+]]
+
+visibility/visible = false
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Label" type="Label" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -30.0
+margin/top = -6.0
+margin/right = 33.0
+margin/bottom = 8.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X: 0 ,  Y: 0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="PlayerCol" type="KinematicBody2D" parent="." groups=[
+"CannonBall",
+]]
+
+visibility/visible = false
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 2
+collision/margin = 0.08
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="PlayerCol" groups=[
+"CannonBall",
+]]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+
