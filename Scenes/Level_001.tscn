@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/PlatformJohn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/Brick/BrickL.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/Brick/BrickN.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/Brick/BrickR.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=14]
+
+[node name="Level_001" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+NextScene = "res://Scenes/Level_002.tscn"
+NextRoom = ""
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 2
+is_end_level = false
+is_exit_open = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+editor/display_folded = true
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="PlatJohn_1_001" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 750, 570 )
+platform_speed = 124
+
+[node name="PlatJohn_2_001" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1230, 420 )
+platform_speed = 148
+
+[node name="PlatJohn_2_2" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 420, 270 )
+platform_speed = 180
+direction = -1
+
+[node name="Brick3X" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 510, -150 )
+
+[node name="BrickL" parent="Platforme/Brick3X" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 590, 870 )
+
+[node name="BrickN" parent="Platforme/Brick3X" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 630, 870 )
+
+[node name="BrickR" parent="Platforme/Brick3X" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 670, 870 )
+
+[node name="Brick3X1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 130, 0 )
+
+[node name="BrickL" parent="Platforme/Brick3X1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 590, 870 )
+
+[node name="BrickN" parent="Platforme/Brick3X1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 630, 870 )
+
+[node name="BrickR" parent="Platforme/Brick3X1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 670, 870 )
+
+[node name="StartArea" parent="." instance=ExtResource( 8 )]
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 9 )]
+
+[node name="ExitGate" parent="." instance=ExtResource( 10 )]
+
+visibility/visible = false
+transform/pos = Vector2( 71.9346, -101.224 )
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 11 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="FrontSprites" parent="." instance=ExtResource( 13 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 14 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+
+[editable path="Background"]

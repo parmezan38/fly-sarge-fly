@@ -1,0 +1,229 @@
+[gd_scene load_steps=19 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/PhanBounce.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/PlatformPhan.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/PhanBounceRed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/Brick/BrickN.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/Brick/BrickL.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/Brick/Brick2X.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/GReverser.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=18]
+
+[node name="Level_023" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+NextScene = "res://Scenes/Level_024.tscn"
+NextRoom = "res://Scenes/Room_023.tscn"
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 4
+is_end_level = false
+is_exit_open = false
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="PhanSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -1110, 150 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1370, 570 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1530, 570 )
+platform_speed = 100
+
+[node name="PlatPhan1" parent="Platforme/PhanSet1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1750, 570 )
+platform_speed = 130
+direction = -1
+
+[node name="PlatPhan2" parent="Platforme/PhanSet1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 2050, 570 )
+platform_speed = 160
+
+[node name="PlatPhan3" parent="Platforme/PhanSet1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 2390, 570 )
+platform_speed = 190
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1600, 570 )
+
+[node name="PhanBounce3" parent="Platforme/PhanSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2230, 570 )
+
+[node name="PhanBounce1" parent="Platforme/PhanSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1870, 570 )
+
+[node name="PhanBounce2" parent="Platforme/PhanSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 2610, 570 )
+
+[node name="PhanSet2" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -950, 0 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1530, 570 )
+platform_speed = 190
+
+[node name="PlatPhan1" parent="Platforme/PhanSet2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1870, 570 )
+platform_speed = 190
+
+[node name="PlatPhan2" parent="Platforme/PhanSet2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 2360, 570 )
+platform_speed = 190
+
+[node name="PhanBounce" parent="Platforme/PhanSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1210, 570 )
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1670, 570 )
+
+[node name="PhanBounce1" parent="Platforme/PhanSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 2140, 570 )
+
+[node name="PhanBounce3" parent="Platforme/PhanSet2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2610, 570 )
+
+[node name="PhanSet3" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -950, -150 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1290, 570 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet3" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1530, 570 )
+platform_speed = 190
+
+[node name="PlatPhan1" parent="Platforme/PhanSet3" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 2290, 570 )
+platform_speed = 190
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet3" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1920, 570 )
+
+[node name="PhanBounce1" parent="Platforme/PhanSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 2530, 570 )
+
+[node name="PhanSet4" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+
+[node name="PhanBounce" parent="Platforme/PhanSet4" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 710, 270 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet4" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 960, 270 )
+platform_speed = 210
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet4" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1210, 270 )
+
+[node name="BrickSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+
+[node name="BrickN" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1660, 720 )
+
+[node name="BrickN1" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1620, 720 )
+
+[node name="BrickN2" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1580, 720 )
+
+[node name="BrickL" parent="Platforme/BrickSet1" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1540, 720 )
+
+[node name="Brick2X" parent="Platforme" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 340, 870 )
+
+[node name="GReverser" parent="Platforme" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 540, 650 )
+platform_speed = 100
+
+[node name="GReverser2" parent="Platforme" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1070, 350 )
+platform_speed = 160
+
+[node name="StartArea" parent="." instance=ExtResource( 11 )]
+
+editor/display_folded = false
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 12 )]
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 13 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 15 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1650, 650 )
+
+[node name="ExitGate" parent="." instance=ExtResource( 16 )]
+
+[node name="FrontSprites" parent="." instance=ExtResource( 17 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 18 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+[connection signal="body_enter" from="RoomEndArea" to="." method="_on_RoomEndArea_body_enter"]
+
+

@@ -1,0 +1,157 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/BulletLauncher.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/GSlower.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=12]
+
+[node name="Level_025" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+NextScene = "res://Scenes/Level_026.tscn"
+NextRoom = ""
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 2
+is_end_level = false
+is_exit_open = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+editor/display_folded = true
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="BulletSet" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+
+[node name="BulletLauncher" parent="Platforme/BulletSet" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 330, 870 )
+platform_speed = 200
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1596.03, 870 )
+is_eater = true
+
+[node name="BulletSet1" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 0, -150 )
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1596.03, 870 )
+direction_to_right = false
+platform_speed = 225
+
+[node name="BulletLauncher" parent="Platforme/BulletSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 320, 870 )
+direction_to_right = false
+is_eater = true
+
+[node name="BulletSet2" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 0, -300 )
+
+[node name="BulletLauncher" parent="Platforme/BulletSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 330, 870 )
+platform_speed = 150
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1586.03, 870 )
+is_eater = true
+platform_speed = 230
+
+[node name="BulletSet3" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 390, -450 )
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1206.03, 870 )
+direction_to_right = false
+platform_speed = 250
+
+[node name="BulletLauncher" parent="Platforme/BulletSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 30, 870 )
+direction_to_right = false
+is_eater = true
+platform_speed = 150
+
+[node name="BulletSet4" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 0, -600 )
+
+[node name="BulletLauncher" parent="Platforme/BulletSet4" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 320, 870 )
+platform_speed = 300
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet4" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1596.03, 870 )
+is_eater = true
+
+[node name="GSlower" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 760, 650 )
+platform_speed = 150
+
+[node name="GSlower2" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1150, 490 )
+platform_speed = 222
+
+[node name="GSlower1" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1520, 340 )
+platform_speed = 300
+direction = -1
+
+[node name="GSlower3" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 530, 180 )
+platform_speed = 422
+direction = -1
+
+[node name="StartArea" parent="." instance=ExtResource( 6 )]
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 7 )]
+
+[node name="ExitGate" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -171.739, -233.769 )
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 9 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="FrontSprites" parent="." instance=ExtResource( 11 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 12 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+
+[editable path="Background"]

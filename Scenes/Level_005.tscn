@@ -1,0 +1,96 @@
+[gd_scene load_steps=17 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/PlatformSteven.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/Brick/Brick1X.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/Brick/Brick3X.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/Brick/Brick2X.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/Zlocko.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=16]
+
+[node name="Level_005" type="Node2D"]
+
+script/script = ExtResource( 1 )
+NextScene = "res://Scenes/Level_006.tscn"
+NextRoom = ""
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 3
+is_end_level = false
+is_exit_open = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="PlatSteven" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 780, 870 )
+platform_speed = 188
+
+[node name="PlatSteven1" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 940, 570 )
+platform_speed = 188
+
+[node name="PlatSteven2" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1310, 270 )
+platform_speed = 244
+
+[node name="Brick1X" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1380, 270 )
+
+[node name="Brick3X" parent="Platforme" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1137.4, 720 )
+
+[node name="Brick2X" parent="Platforme" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 678.539, 420 )
+
+[node name="Zlocko" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 480, 780 )
+animationName = "snikering"
+direction = 1
+
+[node name="StartArea" parent="." instance=ExtResource( 9 )]
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 10 )]
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 11 )]
+
+visibility/visible = false
+transform/pos = Vector2( 460.679, -117.717 )
+
+[node name="ExitGate" parent="." instance=ExtResource( 12 )]
+
+visibility/visible = false
+transform/pos = Vector2( 110.111, 3.92225 )
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 13 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="FrontSprites" parent="." instance=ExtResource( 15 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 16 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+

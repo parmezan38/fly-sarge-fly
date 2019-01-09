@@ -1,0 +1,156 @@
+[gd_scene load_steps=19 format=1]
+
+[ext_resource path="res://Scripts/RoomScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/BackgroundKino.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/Brick/BrickL.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/Brick/Brick2X.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/Brick/BrickN.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/Brick/BrickR.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/Brick/Brick1X.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/UnlockExitArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/OutlineSpriteKino.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Object_Scenes/KinoSamplePlayer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Object_Scenes/KinoSounds.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Object_Scenes/Video.tscn" type="PackedScene" id=18]
+
+[node name="Room_031" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+PreviousRoom = "res://Scenes/Level_031.tscn"
+has_player_spawn = false
+play_fade_in = true
+
+[node name="BackgroundKino" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="BrickL" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1660, 420 )
+
+[node name="Brick2X" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1292, 232 )
+
+[node name="Brick2X1" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1022, 232 )
+
+[node name="Brick2X2" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 642, 232 )
+
+[node name="BrickSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+
+[node name="BrickN" parent="Platforme/BrickSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 260, 270 )
+
+[node name="BrickN1" parent="Platforme/BrickSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 300, 270 )
+
+[node name="BrickN2" parent="Platforme/BrickSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 340, 270 )
+
+[node name="BrickR" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 380, 270 )
+
+[node name="Brick1X" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 400, 870 )
+
+[node name="Brick1X1" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 440, 720 )
+
+[node name="Brick1X2" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 390, 570 )
+
+[node name="Brick1X3" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 440, 420 )
+
+[node name="Brick1X4 3" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1520, 870 )
+
+[node name="Brick1X4" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1620, 720 )
+
+[node name="Brick1X4 2" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1540, 570 )
+
+[node name="EndArea" parent="." instance=ExtResource( 9 )]
+
+visibility/visible = false
+transform/pos = Vector2( 960, 50 )
+
+[node name="UnlockExitArea" parent="." instance=ExtResource( 10 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 320, 214 )
+
+[node name="StartArea" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1580, 330 )
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 12 )]
+
+[node name="OutlineSpriteKino" parent="." instance=ExtResource( 13 )]
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 14 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1690, 340 )
+transform/rot = 180.0
+
+[node name="RoomExit" parent="RoomEndArea"]
+
+transform/pos = Vector2( 150, 0 )
+
+[node name="Sprite" parent="RoomEndArea"]
+
+transform/pos = Vector2( -60, 9.99994 )
+flip_h = true
+
+[node name="FrontSprites" parent="." instance=ExtResource( 15 )]
+
+[node name="KinoSamplePlayer" parent="." instance=ExtResource( 16 )]
+
+[node name="KinoSounds" parent="." instance=ExtResource( 17 )]
+
+[node name="Video" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 960, 541 )
+transform/scale = Vector2( 1.003, 1.003 )
+videoName = "008"
+videoOpacity = 0.8
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+[connection signal="body_enter" from="UnlockExitArea" to="." method="_on_UnlockExitArea_body_enter"]
+
+[connection signal="body_enter" from="RoomEndArea" to="." method="_on_RoomEndArea_body_enter"]
+
+
+[editable path="UnlockExitArea"]
+[editable path="RoomEndArea"]

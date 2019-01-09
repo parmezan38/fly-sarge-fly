@@ -1,0 +1,193 @@
+[gd_scene load_steps=17 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/Cannon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/PhanBounce.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/PlatformPhan.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/PhanBounceRed.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/Zlocko.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=16]
+
+[node name="Level_030" type="Node2D"]
+
+transform/pos = Vector2( -1, 0 )
+script/script = ExtResource( 1 )
+NextScene = "res://Scenes/Level_031.tscn"
+NextRoom = ""
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 4
+is_end_level = false
+is_exit_open = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="Cannon" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 790 )
+ball_speed = 200
+
+[node name="Cannon3" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1610, 640 )
+ball_speed = 230
+direction = -1
+timeToShoot = 1.0
+
+[node name="Cannon1" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 490 )
+ball_speed = 260
+timeToShoot = 3.0
+
+[node name="Cannon4" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1610, 340 )
+ball_speed = 280
+direction = -1
+
+[node name="Cannon2" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 310, 190 )
+ball_speed = 300
+timeToShoot = 4.0
+
+[node name="PhanSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -129, 0 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 710, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 900, 870 )
+platform_speed = 150
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1100, 870 )
+
+[node name="PhanSet2" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 261, -150 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 710, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 900, 870 )
+platform_speed = 150
+direction = -1
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1100, 870 )
+
+[node name="PhanSet3" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -189, -300 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet3" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 770, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet3" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 900, 870 )
+platform_speed = 160
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1160, 870 )
+
+[node name="PhanSet4" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 321, -450 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet4" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 650, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet4" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 900, 870 )
+platform_speed = 170
+direction = -1
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1040, 870 )
+
+[node name="PhanSet5" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -209, -600 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet5" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 830, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet5" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 910, 870 )
+platform_speed = 180
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet5" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1180, 870 )
+
+[node name="Zlocko" parent="." instance=ExtResource( 8 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1290, 190 )
+animationName = "tea"
+direction = 1
+
+[node name="StartArea" parent="." instance=ExtResource( 9 )]
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 10 )]
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 11 )]
+
+visibility/visible = false
+transform/pos = Vector2( 460.679, -117.717 )
+
+[node name="ExitGate" parent="." instance=ExtResource( 12 )]
+
+visibility/visible = false
+transform/pos = Vector2( 110.111, 3.92225 )
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 13 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="FrontSprites" parent="." instance=ExtResource( 15 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 16 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+

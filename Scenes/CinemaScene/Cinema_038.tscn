@@ -1,0 +1,122 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://Scripts/RoomScript38.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/BackgroundKino.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/UnlockExitArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/OutlineSpriteKino.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Textures/Sprites/tunel.png" type="Texture" id=10]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/KinoSamplePlayer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/KinoSounds.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/Video.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.5504, 57.2355 )
+
+[node name="Room_038" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+PreviousRoom = "res://Scenes/Level_038.tscn"
+NextRoom = "res://Scenes/Level_039.tscn"
+has_player_spawn = true
+play_fade_in = true
+
+[node name="BackgroundKino" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="EndArea" parent="." instance=ExtResource( 4 )]
+
+visibility/visible = false
+transform/pos = Vector2( 960, 50 )
+
+[node name="UnlockExitArea" parent="." instance=ExtResource( 5 )]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 1580, -80 )
+
+[node name="StartArea" parent="." instance=ExtResource( 6 )]
+
+visibility/visible = false
+transform/pos = Vector2( 372, -174.5 )
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 7 )]
+
+[node name="OutlineSpriteKino" parent="." instance=ExtResource( 8 )]
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 9 )]
+
+visibility/visible = false
+transform/pos = Vector2( 270, -144.691 )
+transform/rot = 180.0
+
+[node name="RoomExitArea" type="Area2D" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 1690, -144.691 )
+transform/rot = 180.0
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 20.7583, -2.04388 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 7
+collision/mask = 7
+
+[node name="Col4Room" type="CollisionShape2D" parent="RoomExitArea"]
+
+transform/pos = Vector2( 20.7583, -2.04388 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="RoomExit" type="Position2D" parent="RoomExitArea"]
+
+transform/pos = Vector2( 180, 0 )
+
+[node name="Sprite" type="Sprite" parent="RoomExitArea"]
+
+transform/pos = Vector2( -60, 10 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="FrontSprites" parent="." instance=ExtResource( 11 )]
+
+[node name="KinoSamplePlayer" parent="." instance=ExtResource( 12 )]
+
+[node name="KinoSounds" parent="." instance=ExtResource( 13 )]
+
+[node name="Video" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 960, 541 )
+transform/scale = Vector2( 1.003, 1.003 )
+videoName = "010"
+videoOpacity = 0.8
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+[connection signal="body_enter" from="UnlockExitArea" to="." method="_on_UnlockExitArea_body_enter"]
+
+[connection signal="body_enter" from="RoomEndArea" to="." method="_on_RoomEndArea_body_enter"]
+
+[connection signal="body_enter" from="RoomExitArea" to="." method="_on_RoomExitArea_body_enter"]
+
+
+[editable path="UnlockExitArea"]

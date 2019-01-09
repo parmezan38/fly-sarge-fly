@@ -1,0 +1,156 @@
+[gd_scene load_steps=19 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/BulletLauncher.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/PhanBounce.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/PhanBounceRed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/PlatformPhan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/PlatformVassili.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/Zlocko.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/GSlower.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=18]
+
+[node name="Level_027" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+NextScene = "res://Scenes/Level_028.tscn"
+NextRoom = "res://Scenes/Room_027.tscn"
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 1
+is_end_level = false
+is_exit_open = false
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="BulletSet1" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 0, 150 )
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1130, 420 )
+direction_to_right = false
+platform_speed = 250
+
+[node name="BulletLauncher" parent="Platforme/BulletSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 320, 420 )
+direction_to_right = false
+is_eater = true
+
+[node name="BulletSet2" type="Node2D" parent="Platforme"]
+
+[node name="BulletLauncher" parent="Platforme/BulletSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 320, 420 )
+platform_speed = 300
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1450, 420 )
+is_eater = true
+
+[node name="BulletSet3" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 470, -150 )
+
+[node name="BulletLauncher1" parent="Platforme/BulletSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1070, 420 )
+direction_to_right = false
+platform_speed = 300
+
+[node name="BulletLauncher" parent="Platforme/BulletSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 660, 420 )
+direction_to_right = false
+is_eater = true
+
+[node name="PhanSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+
+[node name="PhanBounce" parent="Platforme/PhanSet1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 960, 870 )
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 650, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 770, 870 )
+platform_speed = 175
+
+[node name="PlatVassili" parent="Platforme" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 470, 720 )
+
+[node name="Zlocko" parent="Platforme" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1640, 210 )
+animationName = "clapping"
+
+[node name="GSlower" parent="Platforme" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1330, 500 )
+platform_speed = 150
+direction = -1
+
+[node name="GSlower1" parent="Platforme" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1510, 340 )
+platform_speed = 200
+direction = -1
+
+[node name="StartArea" parent="." instance=ExtResource( 11 )]
+
+editor/display_folded = false
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 12 )]
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 13 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 15 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1650, 350 )
+
+[node name="RoomExit" parent="RoomEndArea"]
+
+transform/pos = Vector2( -35.7635, 0 )
+
+[node name="ExitGate" parent="." instance=ExtResource( 16 )]
+
+[node name="FrontSprites" parent="." instance=ExtResource( 17 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 18 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+[connection signal="body_enter" from="RoomEndArea" to="." method="_on_RoomEndArea_body_enter"]
+
+
+[editable path="RoomEndArea"]

@@ -1,0 +1,190 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/PhanBounce.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/PlatformPhan.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/PhanBounceRed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/Zlocko.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=15]
+
+[node name="Level_013" type="Node2D"]
+
+script/script = ExtResource( 1 )
+NextScene = "res://Scenes/Level_014.tscn"
+NextRoom = ""
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 4
+is_exit_open = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="PhanSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 552, 2 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 710, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 900, 870 )
+platform_speed = 75
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1100, 870 )
+
+[node name="PhanSet2" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 162, -148 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 868, 868 )
+
+[node name="PhanBounce1" parent="Platforme/PhanSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 338, 868 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 990, 870 )
+platform_speed = 75
+direction = -1
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1100, 870 )
+
+[node name="PlatPhan 2" parent="Platforme/PhanSet2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 728, 868 )
+platform_speed = 100
+
+[node name="PlatPhan1" parent="Platforme/PhanSet2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 498, 868 )
+platform_speed = 100
+direction = -1
+
+[node name="PhanBounce4" parent="Platforme/PhanSet2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 628, 868 )
+
+[node name="PhanSet4" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -390, -300 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet4" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 650, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet4" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 740, 870 )
+platform_speed = 145
+direction = -1
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet4" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 870, 870 )
+
+[node name="PhanSet3" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 240, -450 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 830, 870 )
+
+[node name="PhanBounce1" parent="Platforme/PhanSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 370, 870 )
+
+[node name="PlatPhan 2" parent="Platforme/PhanSet3" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 728, 868 )
+platform_speed = 165
+
+[node name="PlatPhan1" parent="Platforme/PhanSet3" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 498, 868 )
+platform_speed = 155
+direction = -1
+
+[node name="PhanBounce4" parent="Platforme/PhanSet3" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 590, 870 )
+
+[node name="PhanSet5" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 340, -600 )
+
+[node name="PhanBounce" parent="Platforme/PhanSet5" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 850, 870 )
+
+[node name="PlatPhan" parent="Platforme/PhanSet5" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1010, 870 )
+platform_speed = 175
+
+[node name="PhanBounce 2" parent="Platforme/PhanSet5" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1180, 870 )
+
+[node name="Zlocko" parent="." instance=ExtResource( 7 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1290, 190 )
+animationName = "tea"
+direction = 1
+
+[node name="StartArea" parent="." instance=ExtResource( 8 )]
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 9 )]
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 10 )]
+
+visibility/visible = false
+transform/pos = Vector2( 460.679, -117.717 )
+
+[node name="ExitGate" parent="." instance=ExtResource( 11 )]
+
+visibility/visible = false
+transform/pos = Vector2( 110.111, 3.92225 )
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 12 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="FrontSprites" parent="." instance=ExtResource( 14 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 15 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+

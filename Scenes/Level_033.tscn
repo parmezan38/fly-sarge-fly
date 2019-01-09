@@ -1,0 +1,271 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/PlatformKid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/KidBounce .tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/Cannon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/Zlocko.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=15]
+
+[node name="Level_033" type="Node2D"]
+
+script/script = ExtResource( 1 )
+NextScene = "res://Scenes/Level_034.tscn"
+NextRoom = ""
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 3
+is_end_level = false
+is_exit_open = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="KidSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -80, 0 )
+
+[node name="PlatKid" parent="Platforme/KidSet1" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 400, 870 )
+
+[node name="KidBounce" parent="Platforme/KidSet1" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 330, 870 )
+
+[node name="KidBounce 2" parent="Platforme/KidSet1" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 470, 870 )
+
+[node name="KidSet2" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 60, -150 )
+
+[node name="PlatKid" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 400, 870 )
+platform_speed = 55
+
+[node name="PlatKid1" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 540, 870 )
+platform_speed = 60
+direction = 1
+
+[node name="PlatKid2" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 680, 870 )
+platform_speed = 65
+
+[node name="PlatKid3" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 820, 870 )
+platform_speed = 70
+direction = 1
+
+[node name="PlatKid4" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 960, 870 )
+platform_speed = 75
+
+[node name="PlatKid5" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1100, 870 )
+platform_speed = 80
+direction = 1
+
+[node name="PlatKid6" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1240, 870 )
+platform_speed = 85
+
+[node name="PlatKid7" parent="Platforme/KidSet2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1380, 870 )
+platform_speed = 90
+direction = 1
+
+[node name="KidBounce" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 330, 870 )
+
+[node name="KidBounce 2" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 470, 870 )
+
+[node name="KidBounce3" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 610, 870 )
+
+[node name="KidBounce4" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 750, 870 )
+
+[node name="KidBounce5" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 890, 870 )
+
+[node name="KidBounce6" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1030, 870 )
+
+[node name="KidBounce7" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1170, 870 )
+
+[node name="KidBounce8" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1310, 870 )
+
+[node name="KidBounce9" parent="Platforme/KidSet2" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1450, 870 )
+
+[node name="KidSet3" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 1200, -300 )
+
+[node name="PlatKid" parent="Platforme/KidSet3" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 400, 870 )
+platform_speed = 100
+
+[node name="KidBounce" parent="Platforme/KidSet3" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 330, 870 )
+
+[node name="KidBounce 2" parent="Platforme/KidSet3" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 470, 870 )
+
+[node name="KidSet4" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 60, -450 )
+
+[node name="PlatKid5" parent="Platforme/KidSet4" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1100, 870 )
+platform_speed = 110
+direction = 1
+
+[node name="PlatKid6" parent="Platforme/KidSet4" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1240, 870 )
+platform_speed = 115
+
+[node name="PlatKid7" parent="Platforme/KidSet4" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1380, 870 )
+platform_speed = 120
+direction = 1
+
+[node name="KidBounce6" parent="Platforme/KidSet4" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1030, 870 )
+
+[node name="KidBounce7" parent="Platforme/KidSet4" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1170, 870 )
+
+[node name="KidBounce8" parent="Platforme/KidSet4" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1310, 870 )
+
+[node name="KidBounce9" parent="Platforme/KidSet4" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 1450, 870 )
+
+[node name="KidSet5" type="Node2D" parent="Platforme"]
+
+transform/pos = Vector2( 560, -600 )
+
+[node name="PlatKid" parent="Platforme/KidSet5" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 400, 870 )
+platform_speed = 130
+
+[node name="KidBounce" parent="Platforme/KidSet5" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 330, 870 )
+
+[node name="KidBounce 2" parent="Platforme/KidSet5" instance=ExtResource( 5 )]
+
+visibility/visible = false
+transform/pos = Vector2( 470, 870 )
+
+[node name="Cannon" parent="Platforme" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1620, 640 )
+ball_speed = 150
+direction = -1
+
+[node name="Cannon1" parent="Platforme" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 310, 340 )
+ball_speed = 200
+
+[node name="Zlocko" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 320, 570 )
+animationName = "clapping"
+direction = 1
+
+[node name="StartArea" parent="." instance=ExtResource( 8 )]
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 9 )]
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 10 )]
+
+visibility/visible = false
+transform/pos = Vector2( 460.679, -117.717 )
+
+[node name="ExitGate" parent="." instance=ExtResource( 11 )]
+
+visibility/visible = false
+transform/pos = Vector2( 110.111, 3.92225 )
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 12 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="FrontSprites" parent="." instance=ExtResource( 14 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 15 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+

@@ -1,0 +1,340 @@
+[gd_scene load_steps=23 format=1]
+
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=1]
+[ext_resource path="res://Object_Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Object_Scenes/WallsCollision.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Object_Scenes/BulletLauncher.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Object_Scenes/PlatformJohn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Object_Scenes/Brick/BrickR.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Object_Scenes/Brick/BrickN.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Object_Scenes/Brick/BrickL.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Object_Scenes/Cannon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Object_Scenes/PlatformSteven.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Object_Scenes/PhanBounce.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Object_Scenes/PhanBounceRed.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Object_Scenes/PlatformPhan.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Object_Scenes/Zlocko.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Object_Scenes/StartArea.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Object_Scenes/PlayerSpace.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Object_Scenes/RoomEndArea.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Object_Scenes/ExitGate.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Object_Scenes/OutlineSprite.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Object_Scenes/EndArea.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Object_Scenes/FrontSprites.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Object_Scenes/LevelSounds.tscn" type="PackedScene" id=22]
+
+[node name="Level_035" type="Node2D"]
+
+script/script = ExtResource( 1 )
+NextScene = "res://Scenes/Level_036.tscn"
+NextRoom = ""
+has_player_spawn = false
+play_fade_in = false
+backgroundVersion = 1
+is_end_level = false
+is_exit_open = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="WallsCollision" parent="." instance=ExtResource( 3 )]
+
+[node name="Platforme" type="Node2D" parent="."]
+
+[node name="BulletLauncher" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 590, 870 )
+platform_speed = 350
+
+[node name="BulletLauncher1" parent="Platforme" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1330, 870 )
+is_eater = true
+platform_speed = 400
+
+[node name="PlatJohn1" parent="Platforme" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 960, 720 )
+platform_speed = 300
+
+[node name="BrickSet1" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( -10, 0 )
+
+[node name="BrickR" parent="Platforme/BrickSet1" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 750, 720 )
+
+[node name="BrickN" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 710, 720 )
+
+[node name="BrickN1" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 670, 720 )
+
+[node name="BrickN2" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 630, 720 )
+
+[node name="BrickN3" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 590, 720 )
+
+[node name="BrickN4" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 550, 720 )
+
+[node name="BrickN5" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 510, 720 )
+
+[node name="BrickN6" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 470, 720 )
+
+[node name="BrickN7" parent="Platforme/BrickSet1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 430, 720 )
+
+[node name="BrickL" parent="Platforme/BrickSet1" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 390, 720 )
+
+[node name="BrickSet2" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 940, 0 )
+
+[node name="BrickL" parent="Platforme/BrickSet2" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 240, 720 )
+
+[node name="BrickN4" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 560, 720 )
+
+[node name="BrickN5" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 520, 720 )
+
+[node name="BrickN6" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 480, 720 )
+
+[node name="BrickN7" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 440, 720 )
+
+[node name="BrickN8" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 400, 720 )
+
+[node name="BrickN9" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 360, 720 )
+
+[node name="BrickN10" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 320, 720 )
+
+[node name="BrickN11" parent="Platforme/BrickSet2" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 280, 720 )
+
+[node name="BrickR" parent="Platforme/BrickSet2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 600, 720 )
+
+[node name="BrickSet3" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, -450 )
+
+[node name="BrickR" parent="Platforme/BrickSet3" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 750, 720 )
+
+[node name="BrickN" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 710, 720 )
+
+[node name="BrickN1" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 670, 720 )
+
+[node name="BrickN2" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 630, 720 )
+
+[node name="BrickN3" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 590, 720 )
+
+[node name="BrickN4" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 550, 720 )
+
+[node name="BrickN5" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 510, 720 )
+
+[node name="BrickN6" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 470, 720 )
+
+[node name="BrickN7" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 430, 720 )
+
+[node name="BrickN8" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 390, 720 )
+
+[node name="BrickN9" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 350, 720 )
+
+[node name="BrickN10" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 310, 720 )
+
+[node name="BrickN11" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 270, 720 )
+
+[node name="BrickN12" parent="Platforme/BrickSet3" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 230, 720 )
+
+[node name="BrickSet4" type="Node2D" parent="Platforme"]
+
+editor/display_folded = true
+transform/pos = Vector2( 940, -450 )
+
+[node name="BrickL" parent="Platforme/BrickSet4" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 240, 720 )
+
+[node name="BrickN4" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 560, 720 )
+
+[node name="BrickN12" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 600, 720 )
+
+[node name="BrickN13" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 640, 720 )
+
+[node name="BrickN14" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 680, 720 )
+
+[node name="BrickN15" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 720, 720 )
+
+[node name="BrickN5" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 520, 720 )
+
+[node name="BrickN6" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 480, 720 )
+
+[node name="BrickN7" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 440, 720 )
+
+[node name="BrickN8" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 400, 720 )
+
+[node name="BrickN9" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 360, 720 )
+
+[node name="BrickN10" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 320, 720 )
+
+[node name="BrickN11" parent="Platforme/BrickSet4" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 280, 720 )
+
+[node name="Cannon" parent="Platforme" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1611.69, 640 )
+ball_speed = 600
+direction = -1
+
+[node name="Cannon1" parent="Platforme" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 309.817, 490 )
+ball_speed = 600
+
+[node name="Cannon2" parent="Platforme" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1607.76, 340 )
+ball_speed = 600
+direction = -1
+
+[node name="PlatSteven" parent="Platforme" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 510, 570 )
+platform_speed = 300
+direction = -1
+
+[node name="PlatSteven1" parent="Platforme" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1410, 420 )
+platform_speed = 300
+
+[node name="PhanBounce" parent="Platforme" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 790, 270 )
+
+[node name="PhanBounce 2" parent="Platforme" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 1140, 270 )
+
+[node name="PlatPhan" parent="Platforme" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 950, 270 )
+platform_speed = 300
+
+[node name="Zlocko" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 415.184, 864.411 )
+animationName = "snikering"
+direction = 1
+
+[node name="StartArea" parent="." instance=ExtResource( 15 )]
+
+[node name="PlayerSpace" parent="." instance=ExtResource( 16 )]
+
+[node name="RoomEndArea" parent="." instance=ExtResource( 17 )]
+
+visibility/visible = false
+transform/pos = Vector2( 460.679, -117.717 )
+
+[node name="ExitGate" parent="." instance=ExtResource( 18 )]
+
+visibility/visible = false
+transform/pos = Vector2( 110.111, 3.92225 )
+
+[node name="OutlineSprite" parent="." instance=ExtResource( 19 )]
+
+[node name="EndArea" parent="." instance=ExtResource( 20 )]
+
+transform/pos = Vector2( 960, 60 )
+
+[node name="FrontSprites" parent="." instance=ExtResource( 21 )]
+
+[node name="LevelSounds" parent="." instance=ExtResource( 22 )]
+
+[connection signal="body_enter" from="EndArea" to="." method="_on_EndArea_body_enter"]
+
+
